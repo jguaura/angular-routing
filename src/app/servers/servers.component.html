@@ -3,6 +3,7 @@
     <div class="list-group">
       <a
         [routerLink]="['/servers', server.id]"
+        [queryParams]="{ allowEdit: server.id === 3 ? '1' : '0' }"
         class="list-group-item"
         *ngFor="let server of servers"
       >
