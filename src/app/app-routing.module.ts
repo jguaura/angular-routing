@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from './auth-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,9 +28,14 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
     ]
   },
+  // {
+  //   path: '404',
+  //   component: NotFoundComponent
+  // },
   {
     path: '404',
-    component: NotFoundComponent
+    component: ErrorPageComponent,
+    data: { message: 'Page not found!' }
   },
   {
     path: '**',
